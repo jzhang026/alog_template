@@ -14,8 +14,8 @@ export class Heap<T> {
         let a = this.array;
         while (true) {
             let nextPos = i;
-            if (this.comp(a[i], a[i * 2])) nextPos = i * 2;
-            if (this.comp(a[nextPos], a[i * 2 + 1])) nextPos = i * 2 + 1;
+            if (i * 2 <= this.size && !this.comp(a[i], a[i * 2])) nextPos = i * 2;
+            if (i * 2 + 1 <= this.size && !this.comp(a[nextPos], a[i * 2 + 1])) nextPos = i * 2 + 1;
             if (nextPos == i) break;
             let t = a[i];
             a[i] = a[nextPos];
